@@ -1,6 +1,6 @@
 {
-  "name": "project.de-mobile-app",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "mobile-app",
   "projectType": "application",
   "sourceRoot": "apps/project.de/mobile-app/src",
   "tags": [],
@@ -22,18 +22,18 @@
         "output": "apps/project.de/mobile-app/dist"
       }
     },
+    "ensure-symlink": {
+      "executor": "@nx/expo:ensure-symlink",
+      "options": {}
+    },
     "export": {
-      "dependsOn": [
-        "sync-deps"
-      ],
+      "dependsOn": ["ensure-symlink", "sync-deps"],
       "executor": "@nx/expo:export",
       "options": {
         "outputDir": "dist/apps/project.de/mobile-app",
         "platform": "all"
       },
-      "outputs": [
-        "{options.outputDir}"
-      ]
+      "outputs": ["{options.outputDir}"]
     },
     "install": {
       "executor": "@nx/expo:install",
@@ -43,9 +43,7 @@
       "executor": "@nx/eslint:lint"
     },
     "prebuild": {
-      "dependsOn": [
-        "sync-deps"
-      ],
+      "dependsOn": ["ensure-symlink", "sync-deps"],
       "executor": "@nx/expo:prebuild",
       "options": {
         "clean": true,
@@ -54,18 +52,14 @@
       }
     },
     "run-android": {
-      "dependsOn": [
-        "sync-deps"
-      ],
+      "dependsOn": ["ensure-symlink", "sync-deps"],
       "executor": "@nx/expo:run",
       "options": {
         "platform": "android"
       }
     },
     "run-ios": {
-      "dependsOn": [
-        "sync-deps"
-      ],
+      "dependsOn": ["ensure-symlink", "sync-deps"],
       "executor": "@nx/expo:run",
       "options": {
         "platform": "ios"
@@ -78,9 +72,7 @@
       }
     },
     "start": {
-      "dependsOn": [
-        "sync-deps"
-      ],
+      "dependsOn": ["ensure-symlink", "sync-deps"],
       "executor": "@nx/expo:start",
       "options": {
         "port": 8081
@@ -99,9 +91,7 @@
       "options": {
         "jestConfig": "apps/project.de/mobile-app/jest.config.ts"
       },
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ]
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"]
     },
     "update": {
       "executor": "@nx/expo:update",

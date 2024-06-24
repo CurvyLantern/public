@@ -14,9 +14,11 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "extra": {
+      "updates": {
+        "assetPatternsToBeBundled": ["**/*"]
+      }
+    },
     "ios": {
       "supportsTablet": true
     },
@@ -25,9 +27,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "permissions": [
-        "android.permission.RECORD_AUDIO"
-      ],
+      "permissions": ["android.permission.RECORD_AUDIO"],
       "package": "com.anonymous.neonatologie"
     },
     "web": {
@@ -36,19 +36,17 @@
     },
     "plugins": [
       [
-        "@config-plugins/detox",
-        {
-          "skipProguard": false,
-          "subdomains": [
-            "10.0.2.2",
-            "localhost"
-          ]
-        }
-      ],
-      [
         "expo-image-picker",
         {
           "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ],
+      "expo-secure-store",
+      [
+        "@config-plugins/detox",
+        {
+          "skipProguard": false,
+          "subdomains": ["10.0.2.2", "localhost"]
         }
       ]
     ]

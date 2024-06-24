@@ -26,9 +26,6 @@
       "@jaqua/modules/upload": ["libs/shared/feat/modules/upload/src/index.ts"],
       "@jaqua/project.de/cache": ["libs/project.de/util/cache/src/index.ts"],
       "@jaqua/project.de/config": ["libs/project.de/util/config/src/index.ts"],
-      "@jaqua/project.de/config/server": [
-        "libs/project.de/util/config/src/server.ts"
-      ],
       "@jaqua/project.de/factories": [
         "libs/project.de/util/factories/src/index.ts"
       ],
@@ -39,9 +36,6 @@
         "libs/project.de/util/graphql/src/index.ts"
       ],
       "@jaqua/project.de/theme": ["libs/project.de/util/theme/src/index.ts"],
-      "@jaqua/project.de/theme/server": [
-        "libs/project.de/util/theme/src/server.ts"
-      ],
       "@jaqua/project.de/util/chart": [
         "libs/project.de/util/chart/src/index.ts"
       ],

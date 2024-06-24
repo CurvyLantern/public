@@ -8,7 +8,10 @@
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": ["libs/neonatologie.de/util/factories/**/*.ts"]
+        "lintFilePatterns": [
+          "libs/project.de/util/factories",
+          "libs/neonatologie.de/util/factories/**/*.ts"
+        ]
       }
     },
     "test": {
